@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>portFOLIO</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!--
+        Color Palette used
+        
+        WHITE: #FCFCFC
+        DARKER: #C7C7C7
+        DARKER 2: #2E2E2E
+        BLACK: #000000
+    -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+    </style>
+
+    <style>
+        * {
+            padding: 0;
+            transition: 0.5s;
+            font-size: large;
+            font-family: 'Julius Sans One', sans-serif;
+        }
+
+        .cursor
+        {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: #FCFCFC;
+            text-shadow: -1px -1px 1px black, 1px 1px 1px black;
+            z-index: 5;
+        }
+
+        html,
+        body {
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        .home {
+            height: 100%;
+            background-color: #FCFCFC;
+            overflow: hidden;
+        }
+
+        .front {
+            position: fixed;
+            width: 70%;
+            left: 12%;
+            top: 20%;
+            justify-content: center;
+        }
+
+
+        .block {
+            width: 100%;
+            background-color: black;
+            border-radius: 20px 20px 0 0;
+        }
+
+        #block1 {
+            height: 100px;
+            background-color: #2E2E2E;
+            transform: translateY(300px);
+        }
+
+        #block2 {
+            height: 200px;
+            background-color: #2E2E2E;
+            transform: translateY(200px);
+        }
+
+        #block3 {
+            height: 400px;
+            background-color: #2E2E2E;
+        }
+
+
+        .hello {
+            transform: translateY(150px);
+            font-size: 100px;
+            padding: 20px;
+            text-align: left;
+            border: 1px solid #2E2E2E;
+            border-width: 0 0 0 1px;
+        }
+
+        .line {
+            height: 1px;
+            background-color: #2E2E2E;
+        }
+
+        .container {
+            border: 1px solid #2E2E2E;
+            border-width: 0 0 1px 0;
+            padding: 20px;
+            width: 80%;
+        }
+
+        .container_cont {
+            border: 1px solid #2E2E2E;
+            border-width: 0 0 1px 0;
+            padding: 20px;
+            width: 80%;
+        }
+    </style>
+
+    <style>
+        /* NAV BAR */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+          }
+          
+          .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+          }
+          
+          .sidenav a:hover {
+            color: #f1f1f1;
+          }
+          
+          .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+          }
+          
+          #main {
+            transition: margin-left .5s;
+            padding: 16px;
+          }
+          
+          @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+          }
+    </style>
+
+    <style>
+        .hello {
+            transform: translateY(150px);
+            font-size: 100px;
+            padding: 20px;
+            text-align: left;
+            border: 1px solid #2E2E2E;
+            border-width: 0 0 0 1px;
+        }
+
+        .slide1 {
+            height: 100%;
+            background-color: #2E2E2E;
+            color: #FCFCFC;
+        }
+
+        .wrapper {
+            width: 80%;
+        }
+
+        #contacts {
+            width: 60%;
+        }
+
+        .clips {
+            clip-path: polygon(50% 0%, 100% 0, 100% 100%, 20% 100%);
+            text-align: right;
+            font-size: 10px;
+        }
+
+        .jurnals {
+            float: right;
+            width: 50%;
+            padding: 20px;
+            border-width: 0;
+            margin-top: 5%
+        }
+
+        .jrnls_head {
+            font-size: large;
+        }
+
+        .jrnls_par {
+            font-size: small;
+        }
+
+        .cont
+            {
+                font-size: 1px;
+            }
+
+        img
+        {
+            height: 300px; 
+            width: 300px;
+        }
+
+    </style>
+
+    <style>
+        @media only screen and (max-width: 800px) {
+
+            .clips {
+                clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0% 100%);
+                text-align: right;
+                font-size: 10px;
+            }
+
+            img
+            {
+                height: 200px;
+                width: 200px;
+            }
+
+            .front {
+                
+                top: 10%;;
+            }
+            
+            .hello {
+                transform: rotateZ(90deg);
+                font-size: 100px;
+                padding: 20px;
+                text-align: left;
+                border: 1px solid #2E2E2E;
+                border-width: 0 0 0 0;
+            }
+
+            
+
+            .jrnls_head {
+                font-size: x-small;
+            }
+
+            .jrnls_par {
+                font-size: x-small;
+            }
+
+            .jurnals {
+                width: 90%;
+            }
+
+            .cont
+            {
+                font-size: 1px;
+            }
+
+        }
+    </style>
+
+
+
+</head>
+
+<body onscroll="scroll_sense()">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#about">About</a>
+        <a href="#clipping">My Works</a>
+        <a href="#contacts">Contacts</a>
+      </div>
+
+      <span class="cursor" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+    <div id="hm" class="home">
+
+
+        <div id="frnt" class="row front container" align='center'>
+            <div class="col-sm-2 col-xs-2">
+                <div class="block" id="block1"></div>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <div class="block" id="block2"></div>
+            </div>
+            <div class="col-sm-2 col-xs-2">
+                <div class="block" id="block3"></div>
+            </div>
+            <div class="col-sm-6 col-xs-6">
+                <div id="hlo" class="hello">HELLO</div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="slide1" align='center'>
+
+        <div id="about" class="wrapper">
+
+            <img src="./img/baba_bw.png" data-aos="fade-up" alt="" sizes="" srcset=""
+                style="margin-top: 10%; border-radius: 50%;">
+
+            <br>
+            <br>
+            <div class="line" data-aos="flip-right" style="width: 100%; background-color: #FCFCFC">
+
+            </div>
+            <br>
+            <h4 data-aos="fade-up">Dr Pralhad Debnath</h4>
+            <p data-aos="fade-up">
+                Professor
+            </p>
+            <p data-aos="fade-up">Department of Commerce</p>
+            <p data-aos="fade-up">Tripura University</p>
+            <p data-aos="fade-up" style="font-style: italic;">A centeral University</p>
+
+        </div>
+
+
+    </div>
+
+    <div id="slant" class="slide1" style="background-color: #C7C7C7; color:#FCFCFC">
+
+        <div id="clipping" class="clips" style="background-color: #1b1b1b; height: 100%; width: 100%;">
+
+            <div class="jurnals">
+
+
+                <h3 class="jrnls_head" data-aos="fade-up">
+                    “Status of Commerce Education in Tripura since 2001 to 2007- An analysis”
+                </h3>
+                <div class="gap" data-aos="flip-right" style="width: 80%; height: 1px; background-color: white; float: right">
+
+                </div>
+                <br>
+                <p class="jrnls_par" data-aos="fade-up">YEAR 2009</p>
+                <p class="jrnls_par" data-aos="fade-up">Journal of Business and Economic Issues, Kolkata, pp- 74 – 79.</p>
+                <br>
+
+                <h3 class="jrnls_head" data-aos="fade-up">
+                    “A comparative analysis of the role of managers in the small and medium Enterprises in India”
+                </h3>
+                <div class="gap" data-aos="flip-right" style="width: 80%; height: 1px; background-color: white; float: right">
+
+                </div>
+                <br>
+                <p class="jrnls_par" data-aos="fade-up">Year 2009</p>
+                <p class="jrnls_par" data-aos="fade-up">Abhijit Publication, New Delhi, pp- 176 to 202.</p>
+                <br>
+
+                <h3 class="jrnls_head" data-aos="fade-up">
+                    “Human Resource Management – An analysis with special reference to 21st management for growth and
+                    development”
+                </h3>
+                <p class="jrnls_par" data-aos="fade-up">Year 2009</p>
+                <div class="gap" data-aos="flip-right" style="width: 80%; height: 1px; background-color: white; float: right">
+
+                </div>
+                <br>
+                <p class="jrnls_par" data-aos="fade-up">Human Resource Management – An analysis with special reference to 21st management
+                    for growth and development</p>
+
+                <a href="./work.html">Click here to see more</a>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <div class="slide1" style="background-color: #2E2E2E;" align='center'>
+
+        <div id="contacts" class="container_cont">
+            <h1 data-aos="fade-up" style="margin-top: 20%;">Contacts</h1>
+            <div class="gap" data-aos="flip-right" style="width: 100%; background-color:#FCFCFC; height: 1px"></div>
+            <br><br>
+            
+            <p data-aos="fade-up">Contacts</p>
+            <p data-aos="fade-up" style="font-size: 15px;">9436134424</p>
+            <br>
+            <p data-aos="fade-up">Email (personal)</p>
+            <p data-aos="fade-up" style="font-size: 15px; font-family: sans-serif">pralladdebnath@gmail.com</p>
+            <br>
+            <p data-aos="fade-up">Email (Official)</p>
+            <p data-aos="fade-up" style="font-size: 15px; font-family: sans-serif;">pralladdebnath@tripurauniv.ac.in</p>
+
+            <!-- <div class="rows">            
+                <div class="col-sm-6" style="text-align:right">Email (Official 2)</div>
+                <div class="col-sm-6" style="text-align:left">HOD some of commerce</div>
+            </div> -->
+        </div>
+    </div>
+
+
+
+    <script>
+        function scroll_sense() {
+            console.log("scroll value " + document.documentElement.scrollTop);
+
+            if (document.documentElement.scrollTop > 100) {
+                document.getElementById('block1').style.height = '0px';
+                document.getElementById('block1').style.transform = 'translateY(400px)';
+
+                document.getElementById('block2').style.height = '0px';
+                document.getElementById('block2').style.transform = 'translateY(400px)';
+
+                document.getElementById('block3').style.height = '0px';
+                document.getElementById('block3').style.transform = 'translateY(400px)';
+
+                document.getElementById('hlo').style.fontSize = '0px';
+
+            } else {
+                document.getElementById('block1').style.height = '100px';
+                document.getElementById('block1').style.transform = 'translateY(300px)';
+
+                document.getElementById('block2').style.height = '200px';
+                document.getElementById('block2').style.transform = 'translateY(200px)';
+
+                document.getElementById('block3').style.height = '400px';
+                document.getElementById('block3').style.transform = 'translateY(0)';
+
+                document.getElementById('hlo').style.fontSize = '100px';
+            }
+
+            if (document.documentElement.scrollTop > 150) {
+                console.log("deflation");
+                document.getElementById('frnt').style.borderBottomWidth = '0px';
+                document.getElementById('hlo').style.borderLeftWidth = '0px';
+            } else {
+                document.getElementById('frnt').style.borderBottomWidth = '1px';
+                document.getElementById('hlo').style.borderLeftWidth = '1px';
+            }
+
+        }
+    </script>
+
+    <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+        </script>
+
+    <script>
+        AOS.init();
+      </script>
+</body>
+
+</html>
